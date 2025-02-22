@@ -1,0 +1,9 @@
+[package]
+name = "todo_app"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+aws-config = { version= "1.5.16", features = ["behavior-version-latest"] }
+aws-sdk-dynamodb = "1.65.0"
+tokio = { version = "1", features = ["full"] }
