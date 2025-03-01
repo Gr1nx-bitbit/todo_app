@@ -33,4 +33,23 @@ fn main() {
 }
 ```
 
+Simple initialization and update of a Task
+```
+pub mod types;
+pub mod aws_stuff;
+pub mod values;
+
+use types::task::Task;
+
+fn main() {
+    let mut _test = Task::new_default();
+
+    _test.print();
+
+    _test.update_priority();
+
+    _test.print();
+}
+```
+
 </span>
