@@ -52,4 +52,24 @@ fn main() {
 }
 ```
 
+Simple initialization and update of a Folder type
+```
+pub mod types;
+pub mod aws_stuff;
+pub mod values;
+
+use types::folder::Folder;
+use types::task::Task;
+
+fn main() {
+    let mut _test_folder = Folder::new();
+    let _test_task = Task::new_default();
+
+    _test_folder.add_task(_test_task);
+    
+    _test_folder.print_tasks();
+}
+
+```
+
 </span>
