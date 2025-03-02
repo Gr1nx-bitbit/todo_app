@@ -16,7 +16,7 @@ tokio = { version = "1", features = ["full"] }
 ```
 You can then add whatever other service you want as a crate. 
 
-# CLI Stuff
+## CLI Stuff
 I'm just going to have some CLI examples in this sectoin so we have some stuff to work with on LocalStack.
 
 Creating a table in DynamoDB (S stand for String):
@@ -29,7 +29,11 @@ aws dynamodb create-table \
 --endpoint-url http://localhost:4566
 ```
 
-# Comments
-## 02/21/25
-Holy majoly. Finally got the aws thing to run with Rust. Turns out you have to wait for asynchronous functions to finish... just like in any other languages. No wonder my program wasn't producing any ouput, it exited before the call to localstack could even be made. Anyways, now that we have some basic stuff with dynamo, I think we can try and look at some larger things. If we want to be able to store stuff in DynamoDB we're going to have to look at the service a bit more to understand what we need for it. This means we have to understnad how AWS makes it work since its a NoSQL db and because we want to stay in free tier. The next things we should do then is just research more about Dynamo and make a schema for it. While the types we have in our test file is cool, we have to base them off an actual database!
+## Objectives
+### 03/01/2025
+I want to try and implement a simplistic design for a DynamoDB table. The thing that I think is going to be hard to do is implement the linked list in the design. A folder can have multiple subfolder and unlike in a program, you can't just havev an empty pointer sitting there. Well, I guess you can but it's not the same. Anyway, we have to decide on what independednt sources (data that doesn't rely on anything else) we have. I think for now it's just users (they just exist and things can belong to them). We'll look into DynamoDB some more since it is a NoSQL database. Right now, however, I'm going to create a quick schema that I can use as a reference. Actually, I already kinda have one [here](https://dbdiagram.io/d/Todo-App-679fe181263d6cf9a0c7a32d); the only problem is that we have to validate data before it's inputted into the db, otherwise, we have a place to start from!
+
+## Comments
+### 02/21/2025
+Holy majoly. Finally got the aws thing to run with Rust. Turns out you have to wait for asynchronous functions to finish... just like in any other language. No wonder my program wasn't producing any ouput, it exited before the call to localstack could even be made. Anyways, now that we have some basic stuff with dynamo, I think we can try and look at some larger things. If we want to be able to store stuff in DynamoDB we're going to have to look at the service a bit more to understand what we need for it. This means we have to understnad how AWS makes it work since its a NoSQL db and because we want to stay in free tier. The next things we should do then is just research more about Dynamo and make a schema for it. While the types we have in our test file is cool, we have to base them off an actual database!
 </span>
